@@ -1,14 +1,14 @@
 <?php
 
 //namespace app\Models;
+include '../app/Models/commenMthodesModel.php';
+include '../app/Database/sqlStatment.php';
 
-include '../Database/sqlStatment.php';
-
-class login_1 extends sqlStatment 
+class login_1 
 {
-
+    use commenMthodesModel;
     private $db ;
-    private $template = 'template';
+   
 
     public function __construct()
     {
@@ -23,14 +23,6 @@ public function retrive()
 
 } 
 
-public function render($view, $varible)
-{
-    
-    ob_start();
-    include "../Views/". $view . ".php";
-    $page = ob_get_contents();
-    include "../Views/". $this->template . ".php";
-   
-}
+
   
 }

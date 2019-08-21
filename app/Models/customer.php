@@ -22,15 +22,7 @@ public function retrive()
 
 } 
 
-public function render($view, $varible)
-{
-    
-    ob_start();
-    include "../Views/". $view . ".php";
-    $page = ob_get_contents();
-    include "../Views/". $this->template . ".php";
-   
-}
+
   
 }
 

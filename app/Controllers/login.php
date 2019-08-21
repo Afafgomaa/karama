@@ -3,7 +3,8 @@
 //namespace app\Controllers;
 
 //use app\Models\login_1;
-include "../Models/login_1.php";
+
+include "../app/Models/login_1.php";
 
 class login {
 
@@ -13,7 +14,7 @@ class login {
     {
         $this->model = new login_1();
     }
-    public function getUsers()
+    public function index()
     {
       $rows =  $this->model->retrive();
 
@@ -24,5 +25,3 @@ class login {
 }
 
 
-$jj = new login();
-$jj->getUsers();

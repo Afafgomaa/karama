@@ -3,7 +3,7 @@
 
 //namespace Database\connection;
 
-include_once('../Config/Config.php');
+include_once('../app/Config/Config.php');
 class connection 
 {
   // this data blow form Config/Congig.php file 
@@ -28,7 +28,7 @@ public function __construct()
      // try to connect to database 
       try{
         $this->dbh = new PDO($dsn,$this->db_user, $this->db_pass, $options);
-        echo 'connetced';
+        //echo 'connetced';
       }
       // catch if  there is  error   & printed
       catch(PDOException $e){
@@ -70,11 +70,19 @@ public function Single()
    return $this->stmt->fetch(PDO::FETCH_OBJ);
 
 }
-public function getAll()
+protected function getAll()
 {
   $this->stmt->execute();
 
   return $this->stmt->fetchAll(PDO::FETCH_OBJ);
+
+}
+protected function get($query,$attribuit)
+{
+ $sql = $this->stmt->prepare($query);
+ $sql->execute($attribuit);
+
+  return $sql->fetchAll(PDO::FETCH_OBJ);
 
 }
 
